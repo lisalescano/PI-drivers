@@ -1,0 +1,8 @@
+.containerLP{
+    background-image: url('https://www.nippon.com/es/ncommon/contents/japan-topics/2483195/2483195.jpg');
+    background-attachment: initial;
+    position: relative;
+    width: 93vw;
+    height: 100vh;
+    overflow-y: hidden;
+}

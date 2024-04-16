@@ -13,7 +13,7 @@ const getAllDrivers = async () => {
             }
         }
     })
-    
+
     const driverDB = cleanAllDrivDB(infoDB)
 
     const infoApi = (await axios.get("http://localhost:5000/drivers")).data
@@ -25,14 +25,25 @@ const getAllDrivers = async () => {
 
 const getDriverByName = async (name) => {
     const infoDB = await Driver.findAll({
-        where: { forename: { [Op.iLike]: `%${name}%` } }
+        where: { forename: { [Op.iLike]: `%${name}%` } },
+
+        include: {
+            model: Teams,
+            attributes: ["name", "id"],
+            through: {
+                attributes: []
+            }
+        }
+
     })
 
     const infoApi = (await axios.get("http://localhost:5000/drivers")).data.filter((driver) => driver.driverRef.toLowerCase().includes(name.toLowerCase()))
 
     const driverApi = cleanDriv(infoApi)
 
-    const response = [...infoDB, ...driverApi]
+    const driverDB = cleanAllDrivDB(infoDB)
+
+    const response = [...driverDB, ...driverApi]
 
     if (!response.length) throw Error(`El conductor ${name} no pudo ser encontrado`)
     else return response

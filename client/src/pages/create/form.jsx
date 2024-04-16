@@ -35,7 +35,7 @@ const Create = () => {
         if (!input.nationality) { msg.nationality = 'Please enter a nationality to your driver' }
         if (!regeximg.test(input.image) && input.image !== "") { msg.image = 'Please enter a valid image url' }
         if (!input.dob) { msg.dob = 'Please enter a date of birth to your driver' }
-        else if (!regexdate.test(input.dob)) { msg.dob = 'Please enter a valid date on YYYY-MM-DD format' }
+        else if (!regexdate.test(input.dob)) { msg.dob = 'Please enter a valid date on dd/mm/yyyy format' }
         if (!input.description) { msg.description = 'Please enter a description to your driver' }
         return msg
     }

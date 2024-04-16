@@ -21,11 +21,11 @@ const Detail = () => {
     return (
        
         <div> <NavBar/>
-            <h2>{id}</h2>
+            <h2>Driver ID: {id}</h2>
             <h1>{driver.forename} {driver.surname}</h1>
             <p>{driver.nationality}</p>
             <img src={driver.image} alt='no hay imagen' width='200px'/>
-            <p>Date of birth: {driver.dob}</p>
+            <p>Date of birth: {driver.dob} <span>(yyyy/mm/dd)</span></p>
             <p>{driver.description}</p>
             <p>Teams: {driver.teams}</p>
         </div>

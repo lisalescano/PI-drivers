@@ -6,9 +6,7 @@ const Cards = ({allDrivers})=>{
 
     return(
         <div className="card-list">
-            {driverList?.map((driver)=>(
-                <Card driver={driver}/>
-            ))}
+            {driverList.map(driver=><Card driver={driver}/>)}
         </div>
     )
 }

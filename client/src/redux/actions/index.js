@@ -49,3 +49,25 @@ export function postDriver(payload){
         })
     }
 }
+
+export function orderDrivers(orden){
+    return ({
+        type: "ORDER",
+        payload: orden
+    })
+}
+
+
+export function filterDrivers(filtro){
+    return ({
+        type: "FILTER",
+        payload: filtro
+    })
+}
+
+export function filterTeams(team){
+    return ({
+        type: "FILTER_TEAM",
+        payload: team
+    })
+}

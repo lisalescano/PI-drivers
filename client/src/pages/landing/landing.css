@@ -1,8 +1,7 @@
-.containerLP{
-    background-image: url('https://www.nippon.com/es/ncommon/contents/japan-topics/2483195/2483195.jpg');
-    background-attachment: initial;
-    position: relative;
-    width: 93vw;
-    height: 100vh;
-    overflow-y: hidden;
+body {
+  background-image: url(https://cdn.discordapp.com/attachments/1220934438289145870/1230005313760137248/bgf1.jpg?ex=6631beb7&is=661f49b7&hm=a9d1cf5b8ecf604aa85e0c1020723819ee0a631f496095a8f57d98e519a98ce1&);
+  background-attachment: fixed;
+  background-size: cover;
+  justify-content: center;    
+  align-items: center;    
 }

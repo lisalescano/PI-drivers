@@ -47,7 +47,8 @@ function rootReducer(state = initialState, action) {
         case "FILTER":
             if (action.payload == "all") return {
                 ...state,
-                allDrivers: state.copyDrivers
+                allDrivers: state.copyDrivers,
+                driversFiltered: state.copyDrivers
             }
             if (action.payload == "api") {
 
@@ -55,7 +56,8 @@ function rootReducer(state = initialState, action) {
 
                 return {
                     ...state,
-                    allDrivers: [...state.allDrivers].filter(driv => typeof driv.id === "number")
+                    allDrivers: [...state.allDrivers].filter(driv => typeof driv.id === "number"),
+                    driversFiltered: [...state.allDrivers].filter(driv => typeof driv.id === "number")
                 }
             }
             if (action.payload == "created") {
@@ -64,7 +66,8 @@ function rootReducer(state = initialState, action) {
 
                 return {
                 ...state,
-                allDrivers: [...state.allDrivers].filter(driv => typeof driv.id !== "number")
+                allDrivers: [...state.allDrivers].filter(driv => typeof driv.id !== "number"),
+                driversFiltered: [...state.allDrivers].filter(driv => typeof driv.id !== "number")
             }}
         case "FILTER_TEAM":
             if (action.payload=="allteams"){
@@ -75,7 +78,7 @@ function rootReducer(state = initialState, action) {
             } else {
                     return{
                     ...state,
-                    allDrivers: [...state.allDrivers].filter(data => data.teams.includes(action.payload))
+                    allDrivers: [...state.driversFiltered].filter(data => data.teams.includes(action.payload))
                 }
             }
         default:

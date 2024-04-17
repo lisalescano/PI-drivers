@@ -1,8 +1,9 @@
-.card-container{
+.cardcontainer{
     display: flex;
     flex-direction: column;
     background-color: brown;
     border-radius: 10px;
     padding: 25px;
     cursor: pointer;
+    text-decoration: none;
 }

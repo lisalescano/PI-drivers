@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-import { filterDrivers, getAllDrivers, getByName, orderDrivers } from "../../redux/actions"
+import { getAllDrivers } from "../../redux/actions"
 
 import Cards from "../../components/cards/cards"
 import SearchBar from "../../components/searchbar/searchbar"
@@ -14,48 +14,16 @@ const Home = () => {
     const dispatch = useDispatch()
     const allDrivers = useSelector((state)=>state.allDrivers)
 
-    const ITEMS_PER_PAGE = 9
-    
-    
-
     useEffect(()=>{
         dispatch(getAllDrivers())
     },[dispatch])
 
-    // useEffect(()=>{
-    //     setCurrentPage(0)
-    // },[allDrivers])
-    
-    // const [currentPage, setCurrentPage] = useState(0)
-    // const [items, setItems] = useState([...allDrivers].splice(0, ITEMS_PER_PAGE))
-
-
-    function handleNext(e){
-        e.preventDefault()
-        const tItems = allDrivers.length
-        const nextPage = currentPage + 1
-        const index = nextPage * ITEMS_PER_PAGE
-
-        if(index>tItems) return
-
-        setItems([...allDrivers].splice(index, ITEMS_PER_PAGE))
-        setCurrentPage(nextPage)
-        console.log(tItems);
-    }
-    
-    function handlePrev(e){
-        e.preventDefault()
-        const prevPage = currentPage - 1
-
-        if(prevPage<0) return
-
-        const index = prevPage * ITEMS_PER_PAGE
-
-        setItems([...allDrivers].splice(index, ITEMS_PER_PAGE))
-        setCurrentPage(prevPage)
-    }
-
-    
+    const [currentPage, setCurrentPage] = useState(1);
+    const [driversPerPage] = useState(9);
+    const indexOfLastDriver = currentPage * driversPerPage;
+    const indexOfFirstDriver = indexOfLastDriver - driversPerPage;
+    const currentDrivers = allDrivers.slice(indexOfFirstDriver, indexOfLastDriver);
+    const pagination = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div>
@@ -63,8 +31,8 @@ const Home = () => {
             <h1>DRIVERS</h1>
             <OrderBar/>
             <SearchBar/>
-            {/* <Paginated  currentPage={currentPage} handleNext={handleNext} handlePrev={handlePrev}/>  */}
-            <Cards allDrivers={allDrivers}/>
+            {currentDrivers.length>0?<Cards allDrivers={currentDrivers}/>:<h2>Error en la pagina :(</h2>}
+            <nav className="paginationhome"><Paginated  driversPerPage={driversPerPage} allDrivers={allDrivers.length} pagination={pagination}/> </nav>
         </div>
     )
 }

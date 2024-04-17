@@ -1,0 +1,28 @@
+.paginado {
+    list-style-type: none;
+    display:contents;    
+    margin-bottom: 1%;
+    
+}
+
+.li {
+    float: left;
+    margin: 0px 9px;
+    border-radius: 9px;    
+}
+
+.paginas{
+    margin: 0 0 25px 0;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 4%;    
+    -webkit-text-stroke: 1px rgb(250,250,250);
+    background: linear-gradient(
+        brown,
+        rgb(140, 140, 140)
+    );    
+}
+
+.paginas:hover{
+    cursor:pointer;
+}

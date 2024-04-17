@@ -3,10 +3,10 @@ import {Link} from "react-router-dom"
 
 const Landing = ()=>{
     return(
-        <div className="containerLP">
+        <div className="body">
             <h1>Welcome to this SPA about drivers :)</h1>
             <Link to="/drivers">
-                <button>Let's go!</button>
+                <button className="button">Let's go!</button>
             </Link>
         </div>
     )

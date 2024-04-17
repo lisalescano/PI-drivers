@@ -1,13 +1,12 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getTeams } from "../../redux/actions"
+import { getAllDrivers, getTeams } from "../../redux/actions"
 import { orderDrivers, filterDrivers } from "../../redux/actions"
 
 
 const OrderBar = ()=>{
     const dispatch = useDispatch()
     const allTeams = useSelector(state=>state.allTeams)
-    const allDrivers = useSelector(state=>state.allDrivers)
 
     useEffect(()=>{
         dispatch(getTeams())

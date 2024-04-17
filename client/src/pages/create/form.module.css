@@ -1,0 +1,27 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.container{
+    margin: 0px auto;
+    align-items: center;
+    width: 300px;
+}
+
+.form span{
+    color: white;
+    
+}
+
+.form li{
+    color: white;
+    background-color: black;
+}
+
+.form label{
+    color: white;
+    
+}

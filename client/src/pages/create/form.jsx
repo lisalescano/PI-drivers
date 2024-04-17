@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getTeams, postDriver } from "../../redux/actions"
 import NavBar from "../../components/navbar/navbar"
+import style from "./form.module.css"
 
 
 
@@ -97,39 +98,39 @@ const Create = () => {
     console.log(driver)
 
     return (
-        <div>
+        <div className={style.container}>
             <NavBar/>
-            <div>
+            <div className={style.form}>
                 <label>Forename </label>
                 <input type="text" name="forename" value={driver.forename} onChange={e => handleChange(e)} />
                 <span>{error.forename}</span>
             </div>
-            <div>
+            <div className={style.form}>
                 <label>Surname </label>
                 <input type="text" name="surname" value={driver.surname} onChange={e => handleChange(e)} />
                 <span>{error.surname}</span>
             </div>
-            <div>
+            <div className={style.form}>
                 <label>Nactionality </label>
                 <input type="text" name="nationality" value={driver.nationality} onChange={e => handleChange(e)} />
                 <span>{error.nationality}</span>
             </div>
-            <div>
+            <div className={style.form}>
                 <label>Image (url) </label>
                 <input type="text" name="image" value={driver.image} onChange={e => handleChange(e)} />
                 <span>{error.image}</span>
             </div>
-            <div>
+            <div className={style.form}>
                 <label>Date of birth </label>
                 <input type="date" name="dob" value={driver.dob} onChange={e => handleChange(e)} />
                 <span>{error.dob}</span>
             </div>
-            <div>
+            <div className={style.form}>
                 <label>Description </label>
                 <input type="text" name="description" value={driver.description} onChange={e => handleChange(e)} />
                 <span>{error.description}</span>
             </div>
-            <div>
+            <div className={style.form}>
                 <label>Teams </label>
                 <select onChange={e => handleSelect(e)}>
                     {allTeams.sort(function (a, b) {
@@ -143,7 +144,7 @@ const Create = () => {
                     {driver.teams.map(team => <li>{team} <button onClick={() => handeDelete(team)}>X</button> </li>)}
                 </ul>
             </div>
-            <button onClick={handleSubmit}>Create</button>
+            <button onClick={handleSubmit} className={style.form}>Create</button>
         </div>
     )
 }

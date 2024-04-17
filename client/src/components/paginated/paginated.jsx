@@ -1,17 +1,23 @@
-import Card from "../card/card"
-import "../cards/cards.css"
+import "./paginated.css"
 
-const Paginated = ({ currentPage, handleNext, handlePrev }) => {
-    return (
-        <div>
-            <p>
-                <button onClick={handlePrev}>Prev</button>
-                {currentPage}
-                <button onClick={handleNext}>Next</button>
-            </p>
+const Paginated = ({driversPerPage, allDrivers, pagination})=>{
+    const pageNumber = [];
 
-            
-        </div>
+    for (let i = 1; i <= Math.ceil(allDrivers/driversPerPage); i++) {
+        pageNumber.push(i);
+    };
+
+    return(
+            <nav>
+                <ul className="paginado">
+                    { pageNumber && 
+                    pageNumber.map(number => (
+                        <li className="li" key={number}>
+                            <button className='paginas' onClick={() => pagination(number)}>{number}</button>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
     )
 }
 

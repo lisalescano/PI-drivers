@@ -1,0 +1,15 @@
+.detail {
+    background-color: brown;
+    width: 500px;
+    margin: 0px auto;
+    border-radius: 20px;
+}
+
+.detail p{
+    color: white;
+    
+}
+
+.detail h1{
+    color: white
+}

@@ -10,7 +10,7 @@ const Card = ({ driver }) => {
             <Link to={`/drivers/${id}`}>
                 <img src={image} alt='no hay imagen' width='120px' />
                 <h1>{forename} {surname}</h1>
-                <p>{teams}</p>
+                <p>{teams.join(', ')}</p>
             </Link>
         </div>
     )

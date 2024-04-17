@@ -1,4 +1,4 @@
-let initialState = { allDrivers: [], copyDrivers: [], detail: [], allTeams: [] }
+let initialState = { allDrivers: [], copyDrivers: [], driversFiltered:[], detail: [], allTeams: [] }
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
@@ -28,10 +28,6 @@ function rootReducer(state = initialState, action) {
                 ...state
             }
         case "ORDER":
-            if (action.payload == "default") return {
-                ...state,
-                allDrivers: state.copyDrivers
-            }
             if (action.payload == "A-Z") return {
                 ...state,
                 allDrivers: [...state.allDrivers].sort((a, b) => a.forename.localeCompare(b.forename))
@@ -74,25 +70,12 @@ function rootReducer(state = initialState, action) {
             if (action.payload=="allteams"){
                 return{
                     ...state,
-                    allDrivers:state.copyDrivers
+                    allDrivers: state.copyDrivers,
                 }
             } else {
-
-                state.allDrivers=state.copyDrivers
-                
-                const teamsarr = state.allDrivers.map((data)=>{
-                    if (data.teams.includes(',')) {
-                        data.teams = data.teams.split(',').map(team => team.trim());
-                      } else {
-                        data.teams = [data.teams.trim()];
-                      }
-                    })
-                    
-                    
                     return{
-                    
                     ...state,
-                    allDrivers: [...state.allDrivers].filter(data => data.teams.split(',').includes(action.payload))
+                    allDrivers: [...state.allDrivers].filter(data => data.teams.includes(action.payload))
                 }
             }
         default:

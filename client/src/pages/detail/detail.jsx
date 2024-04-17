@@ -27,7 +27,7 @@ const Detail = () => {
             <img src={driver.image} alt='no hay imagen' width='200px'/>
             <p>Date of birth: {driver.dob} <span>(yyyy/mm/dd)</span></p>
             <p>{driver.description}</p>
-            <p>Teams: {driver.teams}</p>
+            <p>Teams: {driver.teams?.join(', ')}</p>
         </div>
     )
 }

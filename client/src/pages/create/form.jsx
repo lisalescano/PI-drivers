@@ -32,12 +32,16 @@ const Create = () => {
     function validate(input) {
         let msg = {}
         if (!input.forename) { msg.forename = 'Please enter a name to your driver' }
+        else if (!/^[A-Z]+$/i.test(input.forename)) { msg.forename = "Only letters are accepted"}
         if (!input.surname) { msg.surname = 'Please enter a surname to your driver' }
+        else if (!/^[A-Z]+$/i.test(input.surname)) { msg.surname = "Only letters are accepted"}
         if (!input.nationality) { msg.nationality = 'Please enter a nationality to your driver' }
+        else if (!/^[A-Z]+$/i.test(input.nationality)) { msg.nationality = "Only letters are accepted"}
         if (!regeximg.test(input.image) && input.image !== "") { msg.image = 'Please enter a valid image url' }
         if (!input.dob) { msg.dob = 'Please enter a date of birth to your driver' }
         else if (!regexdate.test(input.dob)) { msg.dob = 'Please enter a valid date on dd/mm/yyyy format' }
         if (!input.description) { msg.description = 'Please enter a description to your driver' }
+        else if (!/^[A-Z]+$/i.test(input.nationality)) { msg.nationality = "Only letters are accepted"}
         return msg
     }
 

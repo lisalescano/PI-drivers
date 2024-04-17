@@ -31,7 +31,7 @@ const Home = () => {
             <h1>DRIVERS</h1>
             <OrderBar/>
             <SearchBar/>
-            {currentDrivers.length>0?<Cards allDrivers={currentDrivers}/>:<h2>Error en la pagina :(</h2>}
+            {currentDrivers.length>0?<Cards allDrivers={currentDrivers}/>:<h2>There's no drivers :(</h2>}
             <nav className="paginationhome"><Paginated  driversPerPage={driversPerPage} allDrivers={allDrivers.length} pagination={pagination}/> </nav>
         </div>
     )
